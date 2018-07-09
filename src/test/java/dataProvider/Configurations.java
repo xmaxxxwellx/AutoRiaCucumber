@@ -6,7 +6,7 @@ import java.util.Properties;
 public class Configurations {
 
     private static final Properties properties;
-    private static File file = new File("C:/Users/Maksym_Rutskyi/Desktop/Learning Projects/RiaCucumberProject/configs/Configuration.properties");
+    private static File file = new File("src/test/resources/Configuration.properties");
     private static FileInputStream fileInputStream = null;
 
     static {
@@ -25,33 +25,39 @@ public class Configurations {
         }
     }
 
-    public static String getDriverPath(){
+    public static String getDriverPath() {
         String driverPath = properties.getProperty("driverPath");
-        if(driverPath != null) {
+        if (driverPath != null) {
             return driverPath;
-        }
-        else {
+        } else {
             throw new RuntimeException("driverPath not specified in the Configuration.properties file.");
         }
     }
 
     public static long getImplicitlyWait() {
         String implicitlyWait = properties.getProperty("implicitlyWait");
-        if(implicitlyWait != null) {
+        if (implicitlyWait != null) {
             return Long.parseLong(implicitlyWait);
-        }
-        else {
+        } else {
             throw new RuntimeException("implicitlyWait not specified in the Configuration.properties file.");
         }
     }
 
     public static String getUrl() {
         String url = properties.getProperty("URL");
-        if(url != null) {
+        if (url != null) {
             return url;
-        }
-        else {
+        } else {
             throw new RuntimeException("url not specified in the Configuration.properties file.");
+        }
+    }
+
+    public static String getReportConfigPath() {
+        String reportConfigPath = properties.getProperty("reportConfigPath");
+        if (reportConfigPath != null) {
+            return reportConfigPath;
+        } else {
+            throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
         }
     }
 }
