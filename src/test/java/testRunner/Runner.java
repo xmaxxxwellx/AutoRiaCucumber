@@ -11,7 +11,7 @@ import java.io.File;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src\\test\\resources\\features",
+        features = "src/test/resources/features",
         glue = "",
         plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }
 )
